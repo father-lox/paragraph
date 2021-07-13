@@ -1,0 +1,65 @@
+@import "./design-tokens/variables.scss";
+@import "./generic/normalize.scss";
+@import "./design-tokens/elements.scss";
+@import "./generic/fonts.scss";
+
+body {
+    display: flex;
+    align-items: center;
+    background-color: $sub-black;
+    height: 100vh;
+    font-family: "DMSans-Regular";
+    font-size: 16px;
+    color: $gray;
+    padding: 0 50px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 120px;
+    grid-template-areas: "logo application" "link link";
+    justify-items: center;
+    align-items: center;    
+
+    img {
+        display: block;
+        width: 350px;
+        grid-area: logo;
+    }
+
+    .application {
+        grid-area: application;
+
+        &-name {
+            font-size: 55px;
+            color: $green;
+            margin-bottom: 10px;
+        }
+    
+        .buttons {
+            margin-top: 30px;
+    
+            & > .button {
+                margin-right: 25px;
+            }
+        }
+    }
+
+    
+
+    .link {
+        @include link($gray);
+        margin-top: 100px;
+        grid-area: link;
+    }
+}
+
+.accent-button {
+    @include accent-button($green, $sub-green);
+}
+
+.button {
+    @include button($gray, $green, $gray);
+}
+
