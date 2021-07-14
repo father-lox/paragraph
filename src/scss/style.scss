@@ -18,10 +18,10 @@ body {
 .header {
     display: grid;
     grid-template-columns: minmax(270px, 350px) minmax(auto, 400px);
-    grid-column-gap: 13%;
-    height: 210px;
+    grid-column-gap: 80px;
     justify-items: center;
-    align-items: center;    
+    align-items: center;
+    height: 210px;
 
     img {
         display: block;
@@ -45,23 +45,40 @@ body {
             & > .button {
                 margin-right: 25px;
             }
+
+            @media screen and (max-width: 360px) {
+                flex-direction: column;
+                & > .button {
+                    margin-top: 10px;
+                    order: 1;
+                }
+            }
         }
     }
 
-    
-
-    .link {
-        @include link($gray);
-        margin-top: 100px;
-        grid-area: link;
+    @media screen and (max-width: 768px) {
+        grid-template-columns: auto;
+        grid-template-rows: 1fr 1fr;
+        max-width: 475px;
+        height: auto;
     }
 }
 
 .accent-button {
     @include accent-button($green, $sub-green);
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        max-width: none;
+    }
 }
 
 .button {
     @include button($gray, $green, $gray, auto);
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        max-width: none;
+    }
 }
 
