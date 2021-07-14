@@ -1,13 +1,13 @@
 @import "./variables.scss";
 
 %button {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 8px;
-    text-align: center;
-    height: 33px;
     text-decoration: none;
-    min-width: 147px;
-    max-width: 217px;
+    min-width: 140px;
+    max-width: 220px;
     padding: 0 10px;
     transition: transform 0.2s ease-in-out;
 
@@ -16,9 +16,10 @@
     }
   }
 
-@mixin accent-button($background-color, $background-color-hover, $text-color:$white) {
+@mixin accent-button($background-color, $background-color-hover, $text-color:$white, $width:100%) {
     @extend %button;
 
+    width: $width;
     background-color: $background-color;
     color: $text-color;
     line-height: 33px;
@@ -30,15 +31,19 @@
     
 }
 
-@mixin button($border-color, $border-color-hover, $text-color:$white) {
+@mixin button($border-color, $border-color-hover, $text-color:$white, $width:100%) {
     @extend %button;
 
+    width: $width;
     color: $text-color;
     border: 2px solid $border-color;
-    line-height: 31px;
 
     &:hover {
         border-color: $border-color-hover;
+    }
+
+    &:active {
+        color: $border-color-hover;
     }
 }
 
